@@ -68,7 +68,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 17)
 
 if(MSVC)
-	set(GUI_TYPE WIN32)
 	add_compile_options(/MP)
 	add_compile_options(/std:c++17)
 elseif(CMAKE_COMPILER_IS_GNUCXX)
@@ -100,12 +99,12 @@ source_group(continuous-integration REGULAR_EXPRESSION ".*[.]yml")
 #	ADDITIONAL LIBRARIES
 #-------------------------------------------------------------------------------
 
-list(APPEND LIBRARIES
-Threads::Threads
-)
-
-# Remove duplicate library dependencies. 
-list(REMOVE_DUPLICATES LIBRARIES)
+# list(APPEND LIBRARIES
+# 
+# )
+# 
+# # Remove duplicate library dependencies. 
+# list(REMOVE_DUPLICATES LIBRARIES)
 
 #-------------------------------------------------------------------------------
 #	GENERATE EXECUTABLE
@@ -115,7 +114,7 @@ list(REMOVE_DUPLICATES LIBRARIES)
 include_directories(${INCLUDE_DIRS})
 
 # Generate the executable
-add_executable(${TARGET_NAME} ${GUI_TYPE} ${SOURCE_FILES} ${RESOURCES})
+add_executable(${TARGET_NAME} ${SOURCE_FILES} ${RESOURCES})
 
 # link libraries
 target_link_libraries(${TARGET_NAME} ${LIBRARIES})
