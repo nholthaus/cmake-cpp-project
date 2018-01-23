@@ -46,14 +46,15 @@
 #ifndef appinfo_h__
 #define appinfo_h__
 
-#include <QString>
+#include <string_view>
+using namespace std::string_view_literals;
 
 namespace APPINFO
 {
-	const QString name("@APPLICATION_NAME@");
-	const QString organization("@APPLICATION_ORGANIZATION@");
-	const QString oranizationDomain("@APPLICATION_ORGANIZATION_DOMAIN@");
-	const QString version("@APPLICATION_VERSION@");
+	constexpr std::string_view name = "@APPLICATION_NAME@"sv;
+	constexpr std::string_view organization = "@APPLICATION_ORGANIZATION@"sv;
+	constexpr std::string_view oranizationDomain = "@APPLICATION_ORGANIZATION_DOMAIN@"sv;
+	constexpr std::string_view version = "@APPLICATION_VERSION@"sv;
 }
 
 #endif // appinfo_h__
